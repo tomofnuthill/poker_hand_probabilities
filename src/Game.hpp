@@ -5,21 +5,26 @@
 
 class Game {
 public: 
-	Game(int card1, int card2, unsigned int simCount, const int opponentCount);
+	Game(int card1, int card2, const int opponentCount);
 	~Game();
-	int combinations[6] = {0};
 	void print();
-	void bestHand(); 
+	void simulate(unsigned long count);
 private:	
 	const int opponentCount;
-	unsigned int simCount;
+	unsigned long simCount = 1;
 	int hand[2] = {0};
 	int communityCards[5] = {0};
 	void populate();	
-
+	void createUsableCards();	
+	void runSimulation();
+	int winCount = 0;
+	float winRate;
+	int usableCards[7];	
+	int **combinations;
 	int **opponents;
+	void printHand();
+	void expectedValue();
 };
-
 
 
 

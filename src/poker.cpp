@@ -1,5 +1,6 @@
 //poker.cpp
 
+#include <iostream>
 #include "poker.hpp"
 #include <cstdlib>
 
@@ -35,7 +36,13 @@ void initializeDeck() {
 
 
 
-void bestHand(int usableCards[]) {
+
+void findHand(int usableCards[], int combinations[]) {
+//emptying the array combinations	        
+	for (int j = 0; j < 6; j++) {
+		combinations[j] = 0;
+        }
+
 
 // populating array valueNumber, could be a function?
 	int valueNumber[13] = {0};
@@ -307,12 +314,13 @@ void bestHand(int usableCards[]) {
 	
 	}
 
-	
-	std::cout << "\n" << combinationsDecoder[combinations[0]] << "\n";
+	#ifdef COUT	
+	std::cout << "\n" << combinationsDecoder[combinations[0]] << ": ";
 	       
 	for (int i = 1; i < 6; i++) {
-		std::cout << values[combinations[i]] << "\n";
+		std::cout << values[combinations[i]] << " ";
 	}
+	#endif
 	
 }	
 	

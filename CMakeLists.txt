@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 set(CMAKE_BUILD_TYPE Debug)
 
+#add_compile_definitions(COUT)
+
 file(GLOB_RECURSE SOURCES "./src/*.cpp" "./src/*/*.cpp")
 add_executable(${PROJECT_NAME} ${SOURCES} main.cpp)
 

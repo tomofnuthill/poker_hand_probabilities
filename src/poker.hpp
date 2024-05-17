@@ -21,6 +21,8 @@ typedef struct Card {
 extern Card deck[52];
 
 void initializeDeck();
+void findHand(int usableCards [], int combinations[]);
+
 
 int newCard(bool cards[]);
 extern const char* combinationsDecoder[]; //size = 10

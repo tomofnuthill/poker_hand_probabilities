@@ -43,6 +43,12 @@ void Game::printHand() {
 	std::cout << opponentCount << " opponents\n";
 }
 
+void Game::printWinningCombinations() {
+	for (int i = 9; i >= 0; i--) {
+		std::cout << combinationsDecoder[i] << ": " << (float)winningCombinations[i] * 100.0 / (float)winCount << "%\n";
+	}
+}
+
 void Game::print() {
 	#ifdef COUT
 	std::cout << "\nyour hand:\n";
@@ -110,6 +116,7 @@ void Game::runSimulation() {
 		}
 	}
 	winCount++;
+	winningCombinations[combinations[0][0]]++;
 	#ifdef COUT
 	std::cout << "we win" << "\n";	
 	#endif
@@ -133,7 +140,7 @@ void Game::simulate(unsigned long count) {
 	std::cout << "win rate: " << winRate * 100.0 << "%\n";
 
 	expectedValue();
-
+	printWinningCombinations();
 }
 
 

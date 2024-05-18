@@ -24,6 +24,8 @@ private:
 	int **opponents;
 	void printHand();
 	void expectedValue();
+	int winningCombinations[10] = {0};
+	void printWinningCombinations();
 };
 
 
